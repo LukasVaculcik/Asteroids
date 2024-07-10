@@ -82,6 +82,17 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Asteroid")) {
+            isAlive = false;
+
+            // Get a reference to the GameManager.
+            GameManager gameManager = FindAnyObjectByType<GameManager>();
+
+            // Restart game after delay.
+            gameManager.GameOver();
+
+            // Destroy the player
+            Destroy(gameObject);
+        }
     }
 }

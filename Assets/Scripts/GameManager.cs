@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -46,5 +46,23 @@ public class GameManager : MonoBehaviour
         Vector2 worldSpawnPosition = Camera.main.ViewportToWorldPoint(viewportSpawnPosition);
         Asteroid asteroid = Instantiate(asteroidPrefab, worldSpawnPosition, Quaternion.identity);
         asteroid.gameManager = this;
+    }
+
+    public void GameOver()
+    {
+        StartCoroutine(Restart());
+    }
+
+    private IEnumerator Restart()
+    {
+        Debug.Log("Game Over");
+
+        // Wait a bit before restarting.
+        yield return new WaitForSeconds(2f);
+
+        // Restart scene.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        yield return null;
     }
 }
