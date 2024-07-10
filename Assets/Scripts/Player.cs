@@ -79,4 +79,9 @@ public class Player : MonoBehaviour
             bullet.AddForce(bulletSpeed * transform.up, ForceMode2D.Impulse);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+    }
 }
