@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [Header("Object references")]
     [SerializeField] private Transform bulletSpawn;
     [SerializeField] private Rigidbody2D bulletPrefab;
+    [SerializeField] private ParticleSystem destroyedParticles;
 
     private Rigidbody2D shipRigidbody;
     private bool isAlive = true;
@@ -90,6 +91,9 @@ public class Player : MonoBehaviour
 
             // Restart game after delay.
             gameManager.GameOver();
+
+            // Spawn particles on destruction.
+            Instantiate(destroyedParticles, transform.position, Quaternion.identity);
 
             // Destroy the player
             Destroy(gameObject);

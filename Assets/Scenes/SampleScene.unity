@@ -473,6 +473,7 @@ MonoBehaviour:
   bulletSpeed: 8
   bulletSpawn: {fileID: 368283125}
   bulletPrefab: {fileID: 5675797849243813149, guid: c79c3a2d0d17ab396b449ddac71f3c5c, type: 3}
+  destroyedParticles: {fileID: 8276224764421795617, guid: 7a3380f7c401f8967881f1937a817447, type: 3}
 --- !u!114 &1310471877
 MonoBehaviour:
   m_ObjectHideFlags: 0
