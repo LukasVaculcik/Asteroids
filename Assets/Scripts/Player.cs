@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private ParticleSystem destroyedParticles;
 
     private Rigidbody2D shipRigidbody;
+    private ParticleSystem thrustParticles;
     private bool isAlive = true;
     private bool isAccelerating = false;
 
