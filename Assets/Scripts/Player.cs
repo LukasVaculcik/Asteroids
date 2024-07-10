@@ -3,18 +3,18 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Ship parameters")]
-    [SerializeField] private float shipAcceleration = 10f;
-    [SerializeField] private float shipMaxVelocity = 10f;
-    [SerializeField] private float shipRotationSpeed = 180f;
+    [SerializeField] private float shipAcceleration = 1f;
+    [SerializeField] private float shipMaxVelocity = 8f;
+    [SerializeField] private float shipRotationSpeed = 200f;
     [SerializeField] private float bulletSpeed = 8f;
 
     [Header("Object references")]
     [SerializeField] private Transform bulletSpawn;
     [SerializeField] private Rigidbody2D bulletPrefab;
     [SerializeField] private ParticleSystem destroyedParticles;
+    [SerializeField] public ParticleSystem thrustEffect;
 
     private Rigidbody2D shipRigidbody;
-    private ParticleSystem thrustParticles;
     private bool isAlive = true;
     private bool isAccelerating = false;
 
@@ -47,6 +47,13 @@ public class Player : MonoBehaviour
     {
         // Is ship accelerating?
         isAccelerating = Input.GetKey(KeyCode.UpArrow);
+
+        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+            thrustEffect.Play(true);
+        } 
+        if (Input.GetKeyUp(KeyCode.UpArrow)) {
+            thrustEffect.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        }
     }
 
     private void HandleShipRotation()

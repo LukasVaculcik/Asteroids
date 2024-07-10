@@ -369,7 +369,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -425,7 +425,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -5305,6 +5305,7 @@ MonoBehaviour:
   bulletSpawn: {fileID: 368283125}
   bulletPrefab: {fileID: 5675797849243813149, guid: c79c3a2d0d17ab396b449ddac71f3c5c, type: 3}
   destroyedParticles: {fileID: 8276224764421795617, guid: 7a3380f7c401f8967881f1937a817447, type: 3}
+  thrustEffect: {fileID: 764218872}
 --- !u!114 &1310471877
 MonoBehaviour:
   m_ObjectHideFlags: 0
