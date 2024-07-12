@@ -5473,7 +5473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipAcceleration: 10
-  shipMaxVelocity: 10
+  shipMaxVelocity: 1
   shipRotationSpeed: 180
   bulletSpeed: 8
   bulletSpawn: {fileID: 368283125}
