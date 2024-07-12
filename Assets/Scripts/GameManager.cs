@@ -50,7 +50,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        StartCoroutine(Restart());
+        //StartCoroutine(Restart());
+        SceneManager.LoadScene("GameOver");
     }
 
     private IEnumerator Restart()
