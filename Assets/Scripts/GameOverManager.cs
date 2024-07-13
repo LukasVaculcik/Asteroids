@@ -22,7 +22,7 @@ public class GameOverManager : MonoBehaviour
             highScoreText.text = "HIGHSCORE: " + highScore.ToString();   
         }
 
-        if (currentScore > highScore) {
+        if (currentScore >= highScore) {
             foreach (var effect in torchEffects) {
                 effect.Play(true);
             }
