@@ -12,10 +12,6 @@ public class Asteroid : MonoBehaviour
 
     private void Start()
     {
-        // Load a Sprites
-        //sprites = Resources.LoadAll("Sprites", typeof(Sprite));
-        Debug.Log(sprites.Count());
-
         // Random sprite
         var spriteIndex = Random.Range(0, sprites.Length);
         GetComponent<SpriteRenderer>().sprite = sprites[spriteIndex];
