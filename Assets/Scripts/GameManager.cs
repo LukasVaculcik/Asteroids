@@ -63,8 +63,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        //StartCoroutine(Restart());
-
         // Set score
         PlayerPrefs.SetInt("CurrentScore", score);
 
@@ -72,18 +70,18 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", score);
         }
 
-        SceneManager.LoadScene("GameOver");
+        StartCoroutine(LoadGameOver());
     }
 
-    private IEnumerator Restart()
+    private IEnumerator LoadGameOver()
     {
         Debug.Log("Game Over");
 
-        // Wait a bit before restarting.
+        // Wait a bit before loading.
         yield return new WaitForSeconds(2f);
 
-        // Restart scene.
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // Load scene.
+        SceneManager.LoadScene("GameOver");
 
         yield return null;
     }

@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D bulletPrefab;
     [SerializeField] private ParticleSystem destroyedParticles;
     [SerializeField] public ParticleSystem thrustEffect;
+    [SerializeField] public ParticleSystem explosionEffect;
 
     private Rigidbody2D shipRigidbody;
     private bool isAlive = true;
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour
             HandleShipAcceleration();
             HandleShipRotation();
             HandleShooting();
+        } else {
+            HandleDeathEffects();
         }
     }
 
@@ -90,6 +93,11 @@ public class Player : MonoBehaviour
             // Add force to proper bullet in direction of ship.
             bullet.AddForce(bulletSpeed * transform.up, ForceMode2D.Impulse);
         }
+    }
+
+    private void HandleDeathEffects()
+    {
+        explosionEffect.Play(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
