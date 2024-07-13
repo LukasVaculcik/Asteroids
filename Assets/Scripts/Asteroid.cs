@@ -4,9 +4,9 @@ using UnityEngine.UIElements;
 public class Asteroid : MonoBehaviour
 {
     [SerializeField] private ParticleSystem destroyedParticles;
-    public int size = 3;
 
     public GameManager gameManager;
+    public int size = 3;
 
     private void Start()
     {
@@ -28,6 +28,23 @@ public class Asteroid : MonoBehaviour
         if (collision.CompareTag("Bullet")) {
             // Register the destruction with the game manager.
             gameManager.asteroidCount--;
+
+            // Count the score
+            switch (size)
+            {
+                case 3:
+                    gameManager.score++;
+                    break;
+                case 2:
+                    gameManager.score += 2;
+                    break;
+                case 1:
+                    gameManager.score += 3;
+                    break;
+                default:
+                    gameManager.score++;
+                    break;
+            }
 
             // Destroy the bullet.
             Destroy(collision.gameObject);

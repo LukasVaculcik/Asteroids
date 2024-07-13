@@ -1,12 +1,22 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Asteroid asteroidPrefab;
+    [SerializeField] public TextMeshProUGUI scoreText;
     public int asteroidCount = 0;
     private int level = 0;
+
+    public int score = 0;
+    public int highScore;
+
+    private void Start()
+    {
+        highScore = PlayerPrefs.GetInt("HighScore");
+    }
 
     private void Update()
     {
@@ -17,11 +27,14 @@ public class GameManager : MonoBehaviour
 
             // Spawn the correct number for this level.
             // 1=>4, 2=>6, 3=>8, 4=>10,...
-            int numAsteroids = 2 + (2 * level);
+            int numAsteroids = 0 + (2 * level);
             for (int i = 0; i < numAsteroids; i++) {
                 SpawnAsteroid();
             }
         }
+
+        // Display score
+        scoreText.text = score.ToString();
     }
 
     private void SpawnAsteroid()
@@ -51,6 +64,14 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         //StartCoroutine(Restart());
+
+        // Set score
+        PlayerPrefs.SetInt("CurrentScore", score);
+
+        if(score > highScore) {
+            PlayerPrefs.SetInt("HighScore", score);
+        }
+
         SceneManager.LoadScene("GameOver");
     }
 

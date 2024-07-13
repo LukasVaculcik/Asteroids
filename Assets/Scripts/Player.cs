@@ -23,6 +23,9 @@ public class Player : MonoBehaviour
     {
         // Get a reference to the attached RigidBody2D
         shipRigidbody = GetComponent<Rigidbody2D>();
+        
+        // Reset score
+        PlayerPrefs.SetInt("CurrentScore", 0);
     }
 
     // Update is called once per frame
