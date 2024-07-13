@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         if (PlayerPrefs.HasKey("HighScore")) {
-            highScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("HighScore").ToString();   
+            highScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("HighScore").ToString();
         } else {
             highScoreText.text = "HIGHSCORE: 0";
         }

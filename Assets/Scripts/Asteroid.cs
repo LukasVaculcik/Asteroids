@@ -1,5 +1,5 @@
+using System.Linq;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Asteroid : MonoBehaviour
 {
@@ -8,8 +8,18 @@ public class Asteroid : MonoBehaviour
     public GameManager gameManager;
     public int size = 3;
 
+    public Sprite[] sprites;
+
     private void Start()
     {
+        // Load a Sprites
+        //sprites = Resources.LoadAll("Sprites", typeof(Sprite));
+        Debug.Log(sprites.Count());
+
+        // Random sprite
+        var spriteIndex = Random.Range(0, sprites.Length);
+        GetComponent<SpriteRenderer>().sprite = sprites[spriteIndex];
+
         // Scale based on the size.
         transform.localScale = 0.5f * size * Vector3.one;
 

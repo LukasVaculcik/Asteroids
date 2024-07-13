@@ -198,5 +198,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyedParticles: {fileID: 8276224764421795617, guid: 7a3380f7c401f8967881f1937a817447, type: 3}
-  size: 3
   gameManager: {fileID: 0}
+  size: 3
+  sprites:
+  - {fileID: 21300000, guid: e267330b292cbb2da93617b38947dcad, type: 3}
+  - {fileID: 21300000, guid: fbaccad4fa1c9234e85a62641c403fc0, type: 3}
+  - {fileID: 21300000, guid: 6695ab17a74f2fd4aa99f5063c5a0403, type: 3}
+  - {fileID: 21300000, guid: 8c295b6c6031d644da1365a86d335068, type: 3}
